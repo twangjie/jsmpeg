@@ -70,7 +70,7 @@ func write2clients(msg []byte) {
 func publishHandler(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
-		request := make([]byte, 32768)
+		request := make([]byte, 1024 * 1024)
 		for {
 			read_len, err := r.Body.Read(request)
 			if (err != nil ) {
