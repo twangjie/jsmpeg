@@ -28,8 +28,17 @@
     <script type="text/javascript" src="src/websocket.js"></script>
     <script type="text/javascript" src="src/player.js"></script>
 	<script type="text/javascript">
+
+        function guid() {
+            function S4() {
+                return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+            }
+            return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+        }
+
 		var canvas = document.getElementById('video-canvas');
-		var url = 'ws://'+document.location.hostname + (window.location.port ? ':' + window.location.port: '') + '/wsmpeg1?tag=123456';
+        var clientId = guid();
+		var url = 'ws://'+document.location.hostname + (window.location.port ? ':' + window.location.port: '') + '/play?clientId=' + clientId;
 		var player = new JSMpeg.Player(url, {canvas: canvas});
 	</script>
 </body>

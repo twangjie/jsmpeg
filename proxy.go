@@ -3,16 +3,17 @@ package main
 import (
 	//	"io"
 	"net/http"
-
+	//"encoding/json"
 	"golang.org/x/net/websocket"
 	"flag"
 	"fmt"
 	"log"
+	"encoding/json"
 )
 
 var addr = flag.String("addr", ":8082", "http service address")
 var root = flag.String("root", ".", "http root path")
-var clients = make(map[*websocket.Conn]*websocket.Conn) // connected clients
+var clients = make(map[string]*websocket.Conn) // connected clients
 
 func main() {
 	flag.Parse()
@@ -20,8 +21,9 @@ func main() {
 
 	fmt.Println("begin")
 	http.Handle("/", http.FileServer(http.Dir(*root))) // <-- note this line
-	http.Handle("/wsmpeg1", websocket.Handler(echoHandler))
+	http.Handle("/play", websocket.Handler(streamingHandler))
 
+	http.HandleFunc("/stat", statHandler)
 	http.HandleFunc("/publish", publishHandler)
 
 	if err := http.ListenAndServe(*addr, nil); err != nil {
@@ -32,12 +34,17 @@ func main() {
 
 }
 
-func echoHandler(ws *websocket.Conn) {
+func streamingHandler(ws *websocket.Conn) {
 
 	fmt.Printf("Handle url: %s\n", ws.Request().URL.String())
 
 	ws.PayloadType = websocket.BinaryFrame
-	clients[ws] = ws
+
+	var r = ws.Request()
+	r.ParseForm()
+	var clientId = r.Form.Get("clientId")
+
+	clients[clientId] = ws
 
 	msg := make([]byte, 512)
 	n, err := ws.Read(msg)
@@ -57,11 +64,11 @@ func echoHandler(ws *websocket.Conn) {
 }
 
 func write2clients(msg []byte) {
-	for _, ws := range clients {
+	for key, ws := range clients {
 		_, err := ws.Write(msg)
 		if err != nil {
 			//log.Fatal(err)
-			delete(clients, ws)
+			delete(clients, key)
 		}
 	}
 
@@ -87,4 +94,14 @@ func publishHandler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
+}
+
+func statHandler(w http.ResponseWriter, r *http.Request) {
+
+	b, _ := json.Marshal(clients)
+	fmt.Println(string(b))
+
+	w.Header().Add("Content-Type", "application/json")
+
+	w.Write(b)
 }

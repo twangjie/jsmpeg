@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="741d1e05-fa4d-4849-8da4-07868eb0c0d2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/h264.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/proxy.go" afterPath="$PROJECT_DIR$/proxy.go" />
-      <change beforePath="$PROJECT_DIR$/src/player.js" afterPath="$PROJECT_DIR$/src/player.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +18,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+            <state relative-caret-position="323">
+              <caret line="40" column="119" lean-forward="false" selection-start-line="40" selection-start-column="119" selection-end-line="40" selection-end-column="119" />
               <folding />
             </state>
           </provider>
@@ -30,10 +28,10 @@
       <file leaf-file-name="proxy.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxy.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="311">
+              <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="32" />
               <folding>
-                <element signature="e#14#98#0" expanded="true" />
+                <element signature="e#14#133#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,9 +150,9 @@
       <find>pan</find>
       <find>E0</find>
       <find>MPEG1.prototype.decodePicture</find>
-      <find>clients</find>
       <find>destination</find>
       <find>MPEG1Video</find>
+      <find>clients</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="D:\Program Files\Go" />
@@ -164,11 +162,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/proxy.go" />
         <option value="$PROJECT_DIR$/src/ts.js" />
         <option value="$PROJECT_DIR$/jsmpeg.js" />
         <option value="$PROJECT_DIR$/src/player.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/proxy.go" />
       </list>
     </option>
   </component>
@@ -299,20 +297,27 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现转发功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现转发功能" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/proxy.go</url>
-          <line>30</line>
+          <line>32</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/proxy.go</url>
-          <line>27</line>
+          <line>29</line>
           <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/proxy.go</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/mpeg1.js</url>
@@ -320,7 +325,7 @@
           <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="68" />
+      <option name="time" value="75" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -428,7 +433,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#98#0" expanded="true" />
+            <element signature="e#14#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -437,6 +442,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4199">
           <caret line="221" column="25" lean-forward="false" selection-start-line="221" selection-start-column="22" selection-end-line="221" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -459,7 +465,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#98#0" expanded="true" />
+            <element signature="e#14#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -469,7 +475,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#98#0" expanded="true" />
+            <element signature="e#14#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -565,13 +571,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Program Files/Go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="2875" column="53" lean-forward="true" selection-start-line="2875" selection-start-column="53" selection-end-line="2875" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,18 +683,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+        <state relative-caret-position="323">
+          <caret line="40" column="119" lean-forward="false" selection-start-line="40" selection-start-column="119" selection-end-line="40" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/Go/src/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="145" column="5" lean-forward="false" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/Go/src/net/url/url.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="775" column="16" lean-forward="false" selection-start-line="775" selection-start-column="16" selection-end-line="775" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="1480" column="55" lean-forward="true" selection-start-line="1480" selection-start-column="55" selection-end-line="1480" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proxy.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        <state relative-caret-position="311">
+          <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="32" />
           <folding>
-            <element signature="e#14#98#0" expanded="true" />
+            <element signature="e#14#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
