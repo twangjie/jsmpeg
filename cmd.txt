@@ -1,0 +1,7 @@
+ffmpeg -re -i d:\test\demo-baseline-profile-1080p-6m.mp4 -f mpegts -s 1280x720 -c:v mpeg1video -c:a mp2 -b:v 6000k -bf 0 -b:a 128k -muxdelay 0.001 http://127.0.0.1:8083/publish
+
+ffmpeg -re -i d:\test\demo-high-profile-1080p-6m-300s.mp4 -f mpegts -s 1280x720 -c:v mpeg1video -c:a mp2 -b:v 6000k -bf 0 -b:a 128k -muxdelay 0.001 http://127.0.0.1:8083/publish
+
+
+ffmpeg -re -i d:\test\RED_4K_Video_of_Colorful_Liquid_in_Space.webm.2160p.vp9.webm -f mpegts -s 1280x720 -c:v mpeg1video -c:a mp2 -b:v 6000k -bf 0 -b:a 128k -muxdelay 0.001 http://127.0.0.1:8083/publish
+

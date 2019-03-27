@@ -11,9 +11,11 @@ import (
 	"encoding/json"
 )
 
-var addr = flag.String("addr", ":8082", "http service address")
+var addr = flag.String("addr", ":8083", "http service address")
 var root = flag.String("root", ".", "http root path")
 var clients = make(map[string]*websocket.Conn) // connected clients
+var publishers = make(map[string]string) // connected clients
+
 
 func main() {
 	flag.Parse()
@@ -50,6 +52,7 @@ func streamingHandler(ws *websocket.Conn) {
 	n, err := ws.Read(msg)
 	if err != nil {
 		//log.Fatal(err)
+        delete(clients, clientId)
 		return
 	}
 	fmt.Printf("Receive: %s\n", msg[:n])
@@ -77,14 +80,30 @@ func write2clients(msg []byte) {
 func publishHandler(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
+        
+        //url := r.URL.String()
+
+        r.ParseForm()
+        var cameraId = r.Form.Get("cameraId")
+        
+        if _, ok := publishers[cameraId]; ok {  
+            return
+        }
+        
+        publishers[cameraId] = cameraId
+                
+        fmt.Printf("Handle camera: %s\n", cameraId)
+        
 		request := make([]byte, 1024 * 1024)
 		for {
 			read_len, err := r.Body.Read(request)
 			if (err != nil ) {
+                delete(publishers, cameraId)
 				fmt.Println(err)
 				break
 			} else {
 				if read_len == 0 {
+                    delete(publishers, cameraId)
 					break
 				} else {
 					//conn.Write([]byte("OK"))
@@ -98,10 +117,25 @@ func publishHandler(w http.ResponseWriter, r *http.Request) {
 
 func statHandler(w http.ResponseWriter, r *http.Request) {
 
-	b, _ := json.Marshal(clients)
-	fmt.Println(string(b))
+    var clientIds []string
+    for kc := range clients {
+        clientIds = append(clientIds, kc)
+    }
+	//b, _ := json.Marshal(clientIds)
+    //clientsJson := string(b)
 
+    var pIds []string
+    for kp := range publishers {
+        pIds = append(pIds, kp)
+    }
+    
+    var stats = make(map[string][]string)
+    stats["clients"] = clientIds 
+    stats["publishers"] = pIds
+    
+    statJson, _ := json.Marshal(stats)
+    
 	w.Header().Add("Content-Type", "application/json")
 
-	w.Write(b)
+	w.Write(statJson)
 }
